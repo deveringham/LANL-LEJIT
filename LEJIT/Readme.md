@@ -1,9 +1,14 @@
 ## LEJIT - Lua Easy Just In Time library 
-__Version 1.0 - Los Alamos National Laboratory__
+__Version 1.1 - Los Alamos National Laboratory__
 
 __Dylan Everingham - 08/26/2016__             
 
-This is a mostly finished (but always expanding) implementation of the LEJIT library. It includes:
+This is a mostly finished (but always expanding) implementation of the LEJIT library.
+The purpose of LEJIT is to enable to configuration of behavior and variables in large physics codes
+written in C, C++ or FORTRAN using a script file written in Lua. Because Lua can be compiled just-in-time,
+this allows for the changing of the physics codes without expensive recompilations, with minimal performance
+losses in many cases.
+It includes:
 	
 * The library files:
  * Lejit.hpp, Lejit.h, Lejit.cpp
