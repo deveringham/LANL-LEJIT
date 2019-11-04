@@ -1,0 +1,31 @@
+NGC should fit into Common Model Framework (CMF) and In Gen tools. Mostly focusses on LaGrangian code.
+
+Want to have compile time opt and run code independently as well.
+
+Levels of dynamic control.
+
+When past milestone in a couple months, will take prototypes and transition to real codes. Developing a plan for the next year. Next year deliver integrated toolkit.
+
+RAGE being transitioned to cmake build system.
+
+Portage library —
+
+Provenance —
+
+Talk to Lucy to gather information. Run efficiently on exascale-class systems — more complex config and compilation.
+
+performance, flexibility, provenance
+
+recompile based on particular problem or configuration.
+
+Recompile mesh, different phases become important at different times. Thresholds when different physics packages turn on, so data structures may change. Phase w/o nuc rxns, then phase when do happen and need to keep track of isotopes. Recompile and use accessors after that.
+
+AMR — may need to recompile, parameters for algorithm change.
+
+Materials involved may change during sim. They move around. Could move from one to more. Could move from table-based EOS to analytical function.
+
+In Situ.
+
+Plan for in situ in context of FLECSI — simple app coupled with viz/catalyst scriptable. Writing out exodus files now. VISIT.
+
+xcp-confluence.lanl.gov

@@ -1,0 +1,21 @@
+\section{Background}
+
+In the case of NGC workflows, the focus is on simulations that execute on a high performance 
+computing cluster, inputting and outputting data to a storage system accessible to the cluster.  
+NGC workflows typically will not execute within a distributed area 
+computing (DAC) scenario (e.g. accessing resources across networks at other sites).  
+This constrains workflow issues somewhat, however also has led to a number of ad-hoc methods for
+specifying and configuring workflows in the past, since it has been relatively easy to write 
+component-specific home-grown configuration and control mechanisms instead of relying on 
+workflow management systems (WMSs) used for DAC scenarios.  These WMSs typically provide a 
+control infrastructure with an interface that is consistent across applications components.  
+
+Typical HPC workflows for ASC codes have included "input decks", which are input parameters
+specified in custom format files that are parsed by applications components.
+
+A preliminary investigation [2] of the control workflow for some LANL codes reveals a rich history of control workflow mechanisms that have evolved and improved throughout the years.  Currently, an input deck is a common expression for the specification of input data and control for a given computational science experiment, and is often in the form of scripts.   These scripts indicate inputs to the system, control of the application, and specification of outputs and output frequency.   Developers use input decks to run smaller scientific codes or smaller subsets of scientific codes and do their own verification and validation.  Production users typically run large scientific simulations, parameter studies, verification and validation, and regression testing.  Scientist productivity can be adversely affected when the control workflow process of specifying and recording the scientific experiment is cumbersome and not well integrated with the application components.  Input deck scripts (and for some also the input files they generate) and the associated scientific input data currently serve as provenance regarding how applications were run and are used to be able to reproduce results, to compare runs and as a starting point for new experiments.   Current input deck mechanisms such as InGen use Python scripts to generate one or more input files that are in formats custom to different applications.  The application components read these input files at startup.
+
+Control workflows for some applications at LANL have evolved based on legacy applications that have stand-alone executable components that parse their own custom-format input files.  New codes being written now have the option of making their functionality available via libraries, which opens up many possibilities to improve and extend the control workflow for these applications.  Input and control can be done via a program that makes calls to application libraries, without generating input files in custom formats for each application component.  Furthermore, provenance for the experiment can be recorded in a flexible manner and can possibly even be domain-specific.  Control workflow technology can additionally provide customized code to application components; this code can be run within the application to do specialized in situ visualization, analysis and/or provenance recording.  Control workflow technology can also be instrumental in enabling compilation of codes to use compile-time constants so that the machine code can be optimized for a particular experiment.   There may be other control workflow possibilities that we are not yet aware of until these new application codes are designed and written.  
+
+
+

@@ -1,0 +1,45 @@
+Lee Busby
+
+Blast: 1 ½ years on this 50K lines of C++, add-hoc parser
+
+Miranda: 50K lines fortran, add-hoc parser
+
+NGC Project: merge C++ and Fortran codes into a single code (two hydro calcs) all codes getting config info from Lua. Both codes existed already.
+
+Using Lua as configuration language. Legal Lua program. Lua table constructors to describe input. Similar to JASON. Host code uses Lua/C api to read table.
+
+Callback funcs in Lua to handle initialization of problem. Allow user to talk about the problem domain in the world coordinate system. Doesn’t worry about details of the mesh. Separation in user interface. 3 or 4 lines of code.
+
+Stage 1: code finds input text file
+Stage 2: problem generation (density field 500x500x500 doubles) may generate a lot of data
+Stage 3: running cycles
+
+Benefits are that it gives you a standard programming language.
+
+Have you programmed physics using Lua? No.
+
+If had to write new code, might make different choices. Start out in python, make slow part fast. Cython — looks 95% python.
+
+Existing codes didn’t want to blow up code and do with Python. Trying to write hi density physics code that works on hardware that doesn’t exist.
+
+Take control with Lua interpreter, analyze results, at certain points within physics code. Small, light and fast, to do LuaJIT. Obstacle is people familiar with Python. Big wrt memory usage. Important on future hardware?
+
+E.g. numpy - fast but doesnt work for every alg. Works for array processing — hard to control extra copies. Uses lots of memory. Blast doesn’t match well to numpy.
+
+Wrap compiled code and expose external arrays to numpy. Run at compiled speed.
+
+Errors: syntax, parameter mismatch (semantic error) — host code that reads table needs to catch semantic errors.
+
+Conceivable to change to Python. Feasible to do it embedded, but won’t stay small. Better to do extended model with main program Python and other codes are modules.
+
+Lua - pleasure to work with. Smaller. Two orders of magnitude less source code. CAPI well-thought out. virtual stack approach to move objects between compiled code and Lua. Fortran uses the iso C binding. Wrote an interface layer.
+
+Writes loops in Lua.
+
+Embedded interpreter: specify custom kinds of outputs for your physics (e.g. facility that lets you define a condition and associated action) e.g. every 10 cycles write … Good for steering language. Need to wrap variable or function in compiled code and make available at steering language. Pick and choose. Don’t need to generate an interface for everything (SWIG).
+
+Manpower: Just Lee, but new guy started in September. Keep team small.
+
+Worries about maintainability. You are encouraged to wrap more. Technical debt.
+
+Torch7 group LuaJIT.

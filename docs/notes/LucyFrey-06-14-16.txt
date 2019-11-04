@@ -1,0 +1,49 @@
+Lucy Frey
+
+InGen is python scripts that produce input files for application components. Input files are in custom formats.
+
+CMF (Common Model Framework) is new framework for doing config for various problems and sharing between projects. Uses “authorities” underneath to organize the required information for configuration. Authorities specify callbacks user needs to provide and provides “intervention points” where use can provide own functionality. For example, user can change the EOS for each material. Authorities can be subclassed. This will be integrated with XRAGE and FLAG.
+
+CMF Development Group
+Brian Lansrud Lipis - GL XTD-5
+Fred Wysocki — V&V program manager
+Reynold Cruz
+Gene Dougherty
+Kristi Brislawn
+
+Stakeholders:
+Brian Jean
+Krista
+Leslie
+
+CMF is separate from compilation of application component.
+
+“Not practical to compile during setup.”
+
+Way to run it is to make the input deck, then run X times.
+
+Designer is the physicist using the code in more of a production way to do experiments.
+Code physicist is the developer who does computational science.
+
+Provenance is an open question.
+
+Example Authority/Intervention Points:
+Init
+Interv Pt.
+Modify Globals
+Interv Pt.
+Add Materials
+Interv. Pt.
+Write Input Deck
+Intervention Pt.
+Run
+Intervention Pt.
+Post-Process Function
+
+Authority is responsible for correctness checking.
+InGen is availabe on moonlight. Used for xRage and Flag. /usr/projects/setup/modules
+
+Code physicists may need new authorities for targeted tests.
+
+Bob Singleton does verification problem.
+

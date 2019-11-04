@@ -1,0 +1,154 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[geometry]{ifsym}
+
+\setlength{\parindent}{0.25in}
+
+\usepackage{fancyhdr}
+\fancyhf{}
+\lhead{\scriptsize Control and Configuration Workflow Techniques for NGC}
+\cfoot{\small \thepage}
+
+\def\hyph{-\penalty0\hskip0pt\relax}
+\hyphenation{high-performance}
+
+% times is more compact than default font and so is alegreya
+% (but I fit it a bit easier to read).  You'll have to install
+% an additional package for alegreya to work... 
+\usepackage{Alegreya}
+\usepackage{amsfonts}
+\usepackage{amsfonts,amsmath,amssymb}
+
+\usepackage{float}
+\usepackage{epsfig}
+\usepackage{xspace}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{cite}
+\usepackage{sidecap}
+
+\usepackage{verbatim}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{mdwlist}
+\usepackage{multicol}
+\usepackage{paralist}
+
+% Support hyperlink references within PDF document. 
+\usepackage[pdftex]{hyperref}
+\usepackage{lscape}
+\usepackage{rotating}
+\usepackage{url}
+\urlstyle{sf}
+
+% Nice replacement for standard tables.
+\usepackage{booktabs}
+
+\usepackage{needspace}
+\usepackage{eqparbox}
+\usepackage{tabularx}
+
+
+% xcolor: used for \todo
+\usepackage{xcolor}
+\usepackage{color}
+\definecolor{RED}{rgb}{1,0,0}
+\definecolor{BLUE}{rgb}{0,0,1}
+\definecolor{GREEN}{rgb}{0,1,0} %DIF PREAMBLE
+\definecolor{dark-green}{rgb}{0.0,0.5,0}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\definecolor{darkblue}{rgb}{0,0,0.5}
+\definecolor{darkred}{rgb}{0.5,0,0}
+
+\usepackage{titlesec}
+\titleformat{\section}
+{\color{darkblue}\normalfont\Large\bfseries}
+{\color{darkblue}\thesection}{1em}{}
+
+\titleformat{\subsection}
+{\color{darkblue}\normalfont\large\bfseries}
+{\color{darkblue}\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+{\color{darkblue}\normalfont\bfseries}
+{\color{darkblue}\thesubsubsection}{1em}{}
+
+% todo: adds a note in the margin
+\newcommand{\todo}[1]{
+      \addcontentsline{tdo}{todo}{\protect{#1}}
+      \marginpar{\textcolor{red}{
+      \parbox{2.5cm}{\scriptsize\bf\raggedright #1}
+      }}
+}
+
+% tight lists
+\newenvironment{tight_itemize}{
+\begin{itemize}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{itemize}}
+
+\newenvironment{tight_enumerate}{
+\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{enumerate}}
+
+\makeatletter
+\renewcommand{\paragraph}{%
+  \@startsection{paragraph}{4}%
+  {\z@}{1.25ex \@plus 1ex \@minus .2ex}{-1em}%
+  {\normalfont\normalsize\bfseries}%
+}
+\makeatother
+
+% make a small font \paragraph entry
+\newcommand{\smallpar}[1] {
+	\paragraph{\color{darkblue} #1}
+}
+
+% bring figures closer to text
+%\setlength{\textfloatsep}{0.0ex}
+\renewcommand{\textfloatsep}{\intextsep}
+
+
+% shorthand for href email addresses...
+\newcommand{\email}[1] {\href{mailto:#1}{#1}}
+
+% define \textln if not defined
+\ifdefined\textln\relax\else\newcommand{\textln}[1]{#1}\fi
+
+\newcommand{\rem}[1]{\marginpar{\textcolor{darkred}{$\blacktriangleleft$}}{\sf{\normalsize{\textcolor{darkred}{$\blacksquare$\em{ #1} $\blacksquare$}}}}}
+\newcommand{\remname}[2]{{\marginpar{\textcolor{darkred}{$\blacktriangleleft$ #2}}\sf{\normalsize{\textcolor{darkred}{$\blacksquare$\em{ #1} $\blacksquare$}}}}}
+\newcommand{\psm}[1]{\remname{#1}{psm}}
+\newcommand{\jcb}[1]{\remname{#1}{jcb}}
+\newcommand{\cms}[1]{\remname{#1}{cms}}
+
+\input report-pdf
+
+\begin{document}
+\thispagestyle{empty}
+\begin{center}
+\textbf{\color{darkblue}{\Large Control and Configuration Workflow Techniques for NGC}}
+\end{center}
+\noindent
+
+\begin{center}
+\begin{tabular}{@{} lll@{}}
+ Christine Sweeney  & Dylan Everingham \\
+ Los Alamos National Laboratory                & Los Alamos National Laboratories\\
+ Telephone: (505) 606-0195                     & Telephone: \\
+ \email{cahrens@lanl.gov}                   &        \email{devering@lanl.gov}\\
+\end{tabular}
+\end{center}
+
+\end{center}
+
+\paragraph{Summary} 
+
+\end{document}

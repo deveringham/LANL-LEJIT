@@ -1,0 +1,21 @@
+% 
+\section{Introduction}
+\label{sec:introduction}
+
+\textbf{Workflow} for scientific computing (collection, generation and processing of numerical data) is 
+defined as “sequencing and orchestrating operations, along with the attendant tasks related 
+to these operations”\cite{ascr:FutSciWork:2015}.  For example, workflow can include how the problem is
+set up and specified, how processing is specified, how control flows between various components
+of the application, how data moves between processing stages, and saving some of the workflow
+history (called \textbf{provenance}), so that experiments can be explained or even reproduced.  
+A significant portion of workflow research also involves how to measure or characterize workloads and
+workflow performance.  
+This report focuses on investigating ways in which we might make our workflows more flexible
+and useful for future Next Generation Code applications.  It does not focus on measuring and 
+characterizing performance, but more on exploring how we specify, configure and control workflows
+in order to allow for flexibility in the execution of the workflow and ultimately more optimal
+performance and quality of solution.  For the purposes of this document, we will call this the 
+control workflow.  It is a workflow that sits at a higher level than the workflow that exists 
+within application components.  By components we mean executables, packages or libraries that 
+compose a scientific application.   This report concerns researching and prototyping 
+novel mechanisms for control workflows for new scientific application codes currently being developed.  

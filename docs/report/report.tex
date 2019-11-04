@@ -1,0 +1,182 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[geometry]{ifsym}
+
+\setlength{\parindent}{0.15in}
+
+\usepackage{fancyhdr}
+\fancyhf{}
+\lhead{\scriptsize Control and Configuration Workflow Techniques for NGC}
+\cfoot{\small \thepage}
+
+\def\hyph{-\penalty0\hskip0pt\relax}
+\hyphenation{high-performance}
+
+% times is more compact than default font and so is alegreya
+% (but I fit it a bit easier to read).  You'll have to install
+% an additional package for alegreya to work...
+\usepackage{Alegreya}
+\usepackage{amsfonts}
+\usepackage{amsfonts,amsmath,amssymb}
+
+\usepackage{float}
+\usepackage{epsfig}
+\usepackage{xspace}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{cite}
+\usepackage{sidecap}
+
+\usepackage{verbatim}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{mdwlist}
+\usepackage{multicol}
+\usepackage{paralist}
+\usepackage{enumitem}
+
+% Support hyperlink references within PDF document.
+\usepackage[pdftex]{hyperref}
+\usepackage{pdfpages}
+\usepackage{lscape}
+\usepackage{rotating}
+\usepackage{url}
+\urlstyle{sf}
+% Nice replacement for standard tables.
+\usepackage{booktabs}
+\usepackage{needspace}
+\usepackage{eqparbox}
+\usepackage{tabularx}
+
+% xcolor: used for \todo
+\usepackage{xcolor}
+\usepackage{color}
+\definecolor{RED}{rgb}{1,0,0}
+\definecolor{BLUE}{rgb}{0,0,1}
+\definecolor{GREEN}{rgb}{0,1,0} %DIF PREAMBLE
+\definecolor{dark-green}{rgb}{0.0,0.5,0}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\definecolor{darkblue}{rgb}{0,0,0.5}
+\definecolor{darkred}{rgb}{0.5,0,0}
+
+\usepackage{titlesec}
+\titleformat{\section}
+{\color{darkblue}\normalfont\Large\bfseries}
+{\color{darkblue}\thesection}{1em}{}
+
+\titleformat{\subsection}
+{\color{darkblue}\normalfont\large\bfseries}
+{\color{darkblue}\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+{\color{darkblue}\normalfont\bfseries}
+{\color{darkblue}\thesubsubsection}{1em}{}
+
+\titleformat{\paragraph}
+{\color{darkblue}\normalfont\bfseries}
+{\color{darkblue}\theparagrah}{1em}{}
+
+% todo: adds a note in the margin
+\newcommand{\todo}[1]{
+      \addcontentsline{tdo}{todo}{\protect{#1}}
+      \marginpar{\textcolor{red}{
+      \parbox{2.5cm}{\scriptsize\bf\raggedright #1}
+      }}
+}
+%\setitemize[1]{topsep=3pt,partopsep=3pt,itemsep=0.25\parskip,parsep=\parskip}
+%\setenumerate[1]{topsep=3pt,partopsep=3pt,itemsep=0.25\parskip,parsep=\parskip}
+
+
+\newcommand\immediateaddcontentsline[3]{%
+        \begingroup
+        \let\origwrite\write
+        \def\write{\immediate\origwrite}%
+        \addcontentsline{#1}{#2}{#3}%
+        \endgroup
+}
+% tight lists
+\newenvironment{tight_itemize}{
+\begin{itemize}[noitemsep,leftmargin=.2in,topsep=0.in]
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{itemize}}
+
+\newenvironment{tight_enumerate}{
+\begin{enumerate}[noitemsep]
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{enumerate}}
+
+\makeatletter
+\renewcommand{\paragraph}{%
+  \@startsection{paragraph}{4}%
+  {\z@}{0.25ex \@plus 1ex \@minus .2ex}{-0.25em}%
+  {\normalfont\normalsize\bfseries\color{darkblue}}%
+}
+\makeatother
+
+% make a small font \paragraph entry
+\newcommand{\smallpar}[1] {
+        \paragraph{\small #1}
+}
+
+\titlespacing*{\section}{0pt}{3pt}{1pt}
+\titlespacing*{\subsection}{0pt}{3pt}{1pt}
+\titlespacing*{\subsubsection}{0pt}{3pt}{1pt}
+
+% bring figures closer to text
+\setlength{\textfloatsep}{0.0ex}
+\renewcommand{\textfloatsep}{\intextsep}
+\captionsetup[wrapfigure]{justification=justified,font=small,font=it}
+\captionsetup{labelfont=bf}
+\captionsetup{font=}
+% shorthand for href email addresses...
+\newcommand{\email}[1] {\href{mailto:#1}{#1}}
+
+\newcommand{\mccormick} {M\raise .65ex\hbox{c}Cormick}
+
+% define \textln if not defined
+\ifdefined\textln\relax\else\newcommand{\textln}[1]{#1}\fi
+
+\newcommand{\rem}[1]{\marginpar{\textcolor{darkred}{$\blacktriangleleft$}}{\sf{\normalsize{\textcolor{darkred}{$\blacksquare$\em{ #1} $\blacksquare$}}}}}
+\newcommand{\remname}[2]{{\marginpar{
+  \addcontentsline{toc}{subsubsection}{#2}
+  \textcolor{darkred}{$\blacktriangleleft$ #2}}\sf{\normalsize{\textcolor{darkred}{$\blacksquare$\em{ #1} $\blacksquare$}}}}}
+\newcommand{\psm}[1]{\remname{#1}{psm}}
+\newcommand{\jcb}[1]{\remname{#1}{jcb}}
+\newcommand{\cms}[1]{\remname{#1}{cms}}
+
+\DeclareCaptionFormat{citation}{%
+    \ifx\captioncitation\relax\relax\else
+          \captioncitation\par
+    \fi
+    #1#2#3\par}
+\newcommand*\setcaptioncitation[1]{\def\captioncitation{\textit{Source:}~#1}}
+\let\captioncitation\relax
+\captionsetup{format=citation,justification=centering}
+
+
+\input report-pdf
+
+\begin{document}
+  \input cover
+  \pagenumbering{roman}
+  \setcounter{page}{1}
+  \input contents
+
+  \pagenumbering{arabic}
+  \setcounter{page}{1}
+  \input introduction
+  \input background
+%  \input configuration
+%  \input insitu
+%  \input dyncompile
+
+	% Per the call this is the requested order...
+  \input bibliography
+
+\end{document}

@@ -1,0 +1,27 @@
+Brian Jean - setup team baj@lanl.gov
+
+Todd Gamblin, Center for Applied Scientific Comuting (LLNL) - spack — manages compilation of packages http://scalability-llnl.github.io/spack/index.html
+
+martin shultz
+
+Carl Heinz - Alexandria, Dyninst
+
+Common Model - Aimee, V&V projects Leslie Sherril, Christa Salzberg
+
+XTD — recast common model, brian lanzard-lopez (don’t talk to initially).
+
+Input deck
+
+Lua — small interpreter, Cleaner to interface w C or Fortran. Threading, JIT story cleaner.
+
+Python — too many packages — maybe pure python or shared objects fortran, many tasks asking for same module, LIvermore. Sandia had micro kernels that didn’t support shared objects. Makes for fragile system. Andre Gertik, CCS-2, Chris Malone XCP-1.
+
+Get familiar with Lua capabilities, understand C and Fortran interfaces.
+
+Can put workbook on top of interpreters. Machine learning lib on top of Lua. WB provides w/ automatic provenance. Feed viz back into WB. Can it scale?
+
+plotting python, matpolotlib, ensight,
+
+meet w/ Amy next Tuesday morning.
+
+Need to meet with a user.

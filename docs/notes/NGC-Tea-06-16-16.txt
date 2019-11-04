@@ -1,0 +1,41 @@
+Torch is a scientific computing framework with wide support for machine learning algorithms that puts GPUs first. It is easy to use and efficient, thanks to an easy and fast scripting language, LuaJIT, and an underlying C/CUDA implementation.
+
+There is a Fortran JIT from PSAAP center in Urbana Champagne. MOYA?
+
+“parser-combinator” for fortran -> numpy ??
+
+Look at Jon W’s notebook. Similar to Matlab or RStudio.
+
+“literate programming” code is marked down, not the text.
+
+Matlab people on NGC: Dana Knoll, Chris Malone, Mark Peterson (MPAS)
+
+    RStudio: Emily Caselton
+
+    Can do provenance via GIT?
+
+    How do you “diff” workflows?
+
+    Talk to Felipe Huerta about provenance.
+
+    Flecsi is dockerized. Virtualized environment for designer?
+
+    Need privileged user training.
+
+    Shifter
+
+    MPAS doesn’t need JIT, Configuring, then Fortran from there.
+
+    Jupyter — Ondrej Certik. SymPy - Remap Team. Doing a notebook tutorial at the Study Center.
+
+    Run Program code and save data — use notebooks to postprocess. Doesn’t work with TB size data. Reduce data in situ, then post-process.
+
+    Try JSON or YAML or Nameless (via Fortran?).
+
+    Has FEM library examples. User specify equation on geometry. Solving a weak form. PDE integral. Do integration on quadrature points. Around 20 lines.
+
+    Could write python script that calls python wrapped fortran components. Debug in Fortran. Understand and maintain multiple layers is hard. Python has many dependencies, so difficult to use sometimes.
+
+    Truchas is on gitlab and github. Castin code liquid metal.
+
+    xRage InSitu expert is Scott Halverson.
